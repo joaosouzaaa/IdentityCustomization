@@ -20,7 +20,7 @@ public sealed class UserValidator : AbstractValidator<User>
             .WithMessage(invalidLengthMessage);
 
         RuleFor(u => u.BirthDate)
-            .GreaterThanOrEqualTo(DateTime.Today)
+            .LessThanOrEqualTo(DateTime.Today)
             .WithMessage("Invalid birth date, it has to be equal or greater than today.");
     }
 }

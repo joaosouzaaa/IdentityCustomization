@@ -1,0 +1,24 @@
+services:
+  sqlidentitycustomization:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql-container-identitycustomization
+    environment:
+      - SA_PASSWORD=Test123IDentity$
+      - ACCEPT_EULA=Y
+
+  identitycustomization.api:
+    image: ${DOCKER_REGISTRY-}identitycustomizationapi
+    container_name: identity-customization-api
+    build:
+      context: .
+      dockerfile: src/IdentityCustomization.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      - sqlidentitycustomization

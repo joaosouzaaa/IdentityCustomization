@@ -77,7 +77,7 @@ public sealed class UserValidatorTests
     public async Task ValidateAsync_InvalidBirthDate_ReturnsFalse()
     {
         // A
-        var invalidBirthDate = DateTime.UtcNow.AddDays(-1);
+        var invalidBirthDate = DateTime.UtcNow.AddDays(1);
         var userWithInvalidBirthDate = UserBuilder.NewObject().WithBirthDate(invalidBirthDate).DomainBuild();
 
         // A

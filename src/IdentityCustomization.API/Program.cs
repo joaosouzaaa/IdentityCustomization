@@ -16,10 +16,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHttpsRedirection();
 }
 
 app.UseCors(CorsPoliciesNamesConstants.CorsPolicy);
-app.UseHttpsRedirection();
 app.MigrateDatabase();
 app.UseAuthentication();
 app.UseAuthorization();

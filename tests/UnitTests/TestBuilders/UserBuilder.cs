@@ -8,7 +8,7 @@ internal sealed class UserBuilder
     private readonly Guid _id = Guid.NewGuid();
     private string _userName = "test@email.com";
     private string _password = "te123st";
-    private DateTime _birthDate = DateTime.UtcNow;
+    private DateTime _birthDate = DateTime.UtcNow.AddDays(-1);
 
     public static UserBuilder NewObject() =>
         new();
