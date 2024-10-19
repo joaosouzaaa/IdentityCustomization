@@ -15,6 +15,9 @@ internal static class DependencyInjectionHandler
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddIdentityDependencyInjection();
+        services.AddSettingsDependencyInjection();
         services.AddRepositoriesDependencyInjection();
+        services.AddMappersDependencyInjection();
+        services.AddServicesDependencyInjection();
     }
 }

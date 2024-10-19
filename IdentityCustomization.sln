@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityCustomization.API", "src\IdentityCustomization.API\IdentityCustomization.API.csproj", "{6C6508EE-9259-4E3F-BB11-0D742B9C5A27}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FE488E99-56F6-44EF-AD61-9FF5C615BF7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{0B328A75-6DB5-4EFF-9BFC-81A33100BC92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{6C6508EE-9259-4E3F-BB11-0D742B9C5A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6508EE-9259-4E3F-BB11-0D742B9C5A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6508EE-9259-4E3F-BB11-0D742B9C5A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B328A75-6DB5-4EFF-9BFC-81A33100BC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B328A75-6DB5-4EFF-9BFC-81A33100BC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B328A75-6DB5-4EFF-9BFC-81A33100BC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B328A75-6DB5-4EFF-9BFC-81A33100BC92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B328A75-6DB5-4EFF-9BFC-81A33100BC92} = {FE488E99-56F6-44EF-AD61-9FF5C615BF7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {54E12996-75E7-4221-8F29-CEBF6CA8C98F}
