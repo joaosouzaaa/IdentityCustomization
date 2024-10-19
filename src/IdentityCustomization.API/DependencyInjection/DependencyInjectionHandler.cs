@@ -1,4 +1,5 @@
-﻿using IdentityCustomization.API.Data.DatabaseContexts;
+﻿using IdentityCustomization.API.Constants;
+using IdentityCustomization.API.Data.DatabaseContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityCustomization.API.DependencyInjection;
@@ -12,7 +13,7 @@ internal static class DependencyInjectionHandler
         services.AddAuthentication();
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(configuration.GetConnectionString(OptionsConstants.DefaultConnectionSection)));
 
         services.AddIdentityDependencyInjection();
         services.AddSettingsDependencyInjection();
