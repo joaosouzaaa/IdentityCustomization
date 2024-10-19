@@ -16,7 +16,6 @@ internal static class IdentityDependencyInjection
             options.Password.RequireUppercase = false;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddSignInManager<SignInManager<User>>()
         .AddUserManager<UserManager<User>>()
         .AddDefaultTokenProviders();
 }
