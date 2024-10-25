@@ -11,18 +11,18 @@ internal sealed class UserRoleMapping : IEntityTypeConfiguration<UserRole>
     {
         builder.ToTable(TableNamesConstants.UserRoleTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a =>
+        builder.HasKey(u =>
             new
             {
-                a.UserId,
-                a.RoleId
+                u.UserId,
+                u.RoleId
             });
 
-        builder.Property(a => a.UserId)
+        builder.Property(u => u.UserId)
             .IsRequired(true)
             .HasColumnName("user_id");
 
-        builder.Property(a => a.RoleId)
+        builder.Property(u => u.RoleId)
             .IsRequired(true)
             .HasColumnName("role_id");
     }

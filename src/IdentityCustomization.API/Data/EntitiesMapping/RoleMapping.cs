@@ -11,35 +11,35 @@ internal sealed class RoleMapping : IEntityTypeConfiguration<Role>
     {
         builder.ToTable(TableNamesConstants.RoleTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a => a.Id);
+        builder.HasKey(r => r.Id);
 
-        builder.Property(a => a.Id)
+        builder.Property(r => r.Id)
             .IsRequired(true)
             .HasColumnName("id");
 
-        builder.Property(a => a.ConcurrencyStamp)
+        builder.Property(r => r.ConcurrencyStamp)
             .IsRequired(false)
             .IsConcurrencyToken(true)
             .HasColumnName("concurrency_stamp");
 
-        builder.Property(a => a.Name)
+        builder.Property(r => r.Name)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("name");
 
-        builder.Property(a => a.NormalizedName)
+        builder.Property(r => r.NormalizedName)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("normalized_name");
 
-        builder.HasMany(a => a.UserRoles)
-            .WithOne(a => a.Role)
-            .HasForeignKey(a => a.RoleId)
+        builder.HasMany(r => r.UserRoles)
+            .WithOne(u => u.Role)
+            .HasForeignKey(u => u.RoleId)
             .IsRequired(true);
 
-        builder.HasMany(a => a.RoleClaims)
-            .WithOne(a => a.Role)
-            .HasForeignKey(a => a.RoleId)
+        builder.HasMany(r => r.RoleClaims)
+            .WithOne(r => r.Role)
+            .HasForeignKey(r => r.RoleId)
             .IsRequired(true);
     }
 }

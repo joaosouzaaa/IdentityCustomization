@@ -11,29 +11,29 @@ internal sealed class UserLoginMapping : IEntityTypeConfiguration<UserLogin>
     {
         builder.ToTable(TableNamesConstants.UserLoginTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a =>
+        builder.HasKey(u =>
             new
             {
-                a.LoginProvider,
-                a.ProviderKey
+                u.LoginProvider,
+                u.ProviderKey
             });
 
-        builder.Property(a => a.LoginProvider)
+        builder.Property(u => u.LoginProvider)
             .IsRequired(true)
             .HasColumnType("varchar(128)")
             .HasColumnName("login_provider");
 
-        builder.Property(a => a.ProviderKey)
+        builder.Property(u => u.ProviderKey)
             .IsRequired(true)
             .HasColumnType("varchar(128)")
             .HasColumnName("provider_key");
 
-        builder.Property(a => a.ProviderDisplayName)
+        builder.Property(u => u.ProviderDisplayName)
             .IsRequired(false)
             .HasColumnType("varchar(255)")
             .HasColumnName("provider_display_name");
 
-        builder.Property(a => a.UserId)
+        builder.Property(u => u.UserId)
             .IsRequired(true)
             .HasColumnName("user_id");
     }

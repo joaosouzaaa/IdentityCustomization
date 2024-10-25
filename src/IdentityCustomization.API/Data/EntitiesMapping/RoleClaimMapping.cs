@@ -11,22 +11,22 @@ internal sealed class RoleClaimMapping : IEntityTypeConfiguration<RoleClaim>
     {
         builder.ToTable(TableNamesConstants.RoleClaimTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a => a.Id);
+        builder.HasKey(r => r.Id);
 
-        builder.Property(a => a.Id)
+        builder.Property(r => r.Id)
             .IsRequired(true)
             .HasColumnName("id");
 
-        builder.Property(a => a.RoleId)
+        builder.Property(r => r.RoleId)
             .IsRequired(true)
             .HasColumnName("role_id");
 
-        builder.Property(a => a.ClaimType)
+        builder.Property(r => r.ClaimType)
             .IsRequired(false)
             .HasColumnType("varchar(255)")
             .HasColumnName("claim_type");
 
-        builder.Property(a => a.ClaimValue)
+        builder.Property(r => r.ClaimValue)
             .IsRequired(false)
             .HasColumnType("varchar(255)")
             .HasColumnName("claim_value");

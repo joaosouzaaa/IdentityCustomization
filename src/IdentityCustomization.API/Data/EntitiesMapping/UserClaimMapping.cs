@@ -11,22 +11,22 @@ internal sealed class UserClaimMapping : IEntityTypeConfiguration<UserClaim>
     {
         builder.ToTable(TableNamesConstants.UserClaimTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a => a.Id);
+        builder.HasKey(u => u.Id);
 
-        builder.Property(a => a.Id)
+        builder.Property(u => u.Id)
             .IsRequired(true)
             .HasColumnName("id");
 
-        builder.Property(a => a.UserId)
+        builder.Property(u => u.UserId)
             .IsRequired(true)
             .HasColumnName("user_id");
 
-        builder.Property(a => a.ClaimType)
+        builder.Property(u => u.ClaimType)
             .IsRequired(false)
             .HasColumnType("varchar(255)")
             .HasColumnName("claim_type");
 
-        builder.Property(a => a.ClaimValue)
+        builder.Property(u => u.ClaimValue)
             .IsRequired(false)
             .HasColumnType("varchar(255)")
             .HasColumnName("claim_value");

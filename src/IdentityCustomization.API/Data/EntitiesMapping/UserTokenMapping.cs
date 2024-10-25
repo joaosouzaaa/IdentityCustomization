@@ -11,30 +11,30 @@ internal sealed class UserTokenMapping : IEntityTypeConfiguration<UserToken>
     {
         builder.ToTable(TableNamesConstants.UserTokenTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a =>
+        builder.HasKey(u =>
             new
             {
-                a.UserId,
-                a.LoginProvider,
-                a.Name
+                u.UserId,
+                u.LoginProvider,
+                u.Name
             });
 
-        builder.Property(a => a.LoginProvider)
+        builder.Property(u => u.LoginProvider)
             .IsRequired(true)
             .HasColumnType("varchar(255)")
             .HasColumnName("login_provider");
 
-        builder.Property(a => a.Name)
+        builder.Property(u => u.Name)
             .IsRequired(true)
             .HasColumnType("varchar(255)")
             .HasColumnName("name");
 
-        builder.Property(a => a.Value)
+        builder.Property(u => u.Value)
             .IsRequired(false)
             .HasColumnType("text")
             .HasColumnName("value");
 
-        builder.Property(a => a.UserId)
+        builder.Property(u => u.UserId)
             .IsRequired(true)
             .HasColumnName("user_id");
     }

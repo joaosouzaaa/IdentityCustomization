@@ -11,9 +11,9 @@ internal sealed class UserMapping : IEntityTypeConfiguration<User>
     {
         builder.ToTable(TableNamesConstants.UserTableName, SchemaNamesConstants.IdentitySchema);
 
-        builder.HasKey(a => a.Id);
+        builder.HasKey(u => u.Id);
 
-        builder.Property(a => a.Id)
+        builder.Property(u => u.Id)
            .IsRequired(true)
            .HasColumnType("varchar(50)")
            .HasColumnName("id");
@@ -23,94 +23,94 @@ internal sealed class UserMapping : IEntityTypeConfiguration<User>
             .HasColumnType("datetime2")
             .HasColumnName("birth_date");
 
-        builder.Property(a => a.UserName)
+        builder.Property(u => u.UserName)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("user_name");
 
-        builder.Property(a => a.NormalizedUserName)
+        builder.Property(u => u.NormalizedUserName)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("normalized_user_name");
 
-        builder.Property(a => a.Email)
+        builder.Property(u => u.Email)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("email");
 
-        builder.Property(a => a.NormalizedEmail)
+        builder.Property(u => u.NormalizedEmail)
             .IsRequired(true)
             .HasColumnType("varchar(256)")
             .HasColumnName("normalized_email");
 
-        builder.Property(a => a.EmailConfirmed)
+        builder.Property(u => u.EmailConfirmed)
            .IsRequired(true)
            .HasColumnType("bit")
            .HasColumnName("email_confirmed");
 
-        builder.Property(a => a.PasswordHash)
+        builder.Property(u => u.PasswordHash)
            .IsRequired(true)
            .HasColumnType("varchar(100)")
            .HasColumnName("password");
 
-        builder.Property(a => a.SecurityStamp)
+        builder.Property(u => u.SecurityStamp)
            .IsRequired(false)
            .HasColumnType("varchar(256)")
            .HasColumnName("security_stamp");
 
-        builder.Property(a => a.ConcurrencyStamp)
+        builder.Property(u => u.ConcurrencyStamp)
            .IsRequired(false)
            .IsConcurrencyToken(true)
            .HasColumnType("varchar(256)")
            .HasColumnName("concurrency_stamp");
 
-        builder.Property(a => a.PhoneNumber)
+        builder.Property(u => u.PhoneNumber)
            .IsRequired(false)
            .HasColumnType("varchar(20)")
            .HasColumnName("phone_number");
 
-        builder.Property(a => a.PhoneNumberConfirmed)
+        builder.Property(u => u.PhoneNumberConfirmed)
            .IsRequired(true)
            .HasColumnType("bit")
            .HasColumnName("phone_number_confirmed");
 
-        builder.Property(a => a.TwoFactorEnabled)
+        builder.Property(u => u.TwoFactorEnabled)
            .IsRequired(true)
            .HasColumnType("bit")
            .HasColumnName("two_factor_enabled");
 
-        builder.Property(a => a.LockoutEnd)
+        builder.Property(u => u.LockoutEnd)
            .IsRequired(false)
            .HasColumnName("lockout_end");
 
-        builder.Property(a => a.LockoutEnabled)
+        builder.Property(u => u.LockoutEnabled)
            .IsRequired(true)
            .HasColumnType("bit")
            .HasColumnName("lockout_enabled");
 
-        builder.Property(a => a.AccessFailedCount)
+        builder.Property(u => u.AccessFailedCount)
            .IsRequired(true)
            .HasColumnType("int")
            .HasColumnName("access_failed_count");
 
-        builder.HasMany(a => a.UserRoles)
-            .WithOne(a => a.User)
-            .HasForeignKey(a => a.UserId)
+        builder.HasMany(u => u.UserRoles)
+            .WithOne(u => u.User)
+            .HasForeignKey(u => u.UserId)
             .IsRequired(true);
 
-        builder.HasMany(a => a.UserClaims)
-            .WithOne(a => a.User)
-            .HasForeignKey(a => a.UserId)
+        builder.HasMany(u => u.UserClaims)
+            .WithOne(u => u.User)
+            .HasForeignKey(u => u.UserId)
             .IsRequired(true);
 
-        builder.HasMany(a => a.UserLogins)
-            .WithOne(a => a.User)
-            .HasForeignKey(a => a.UserId)
+        builder.HasMany(u => u.UserLogins)
+            .WithOne(u => u.User)
+            .HasForeignKey(u => u.UserId)
             .IsRequired(true);
 
-        builder.HasMany(a => a.UserTokens)
-            .WithOne(a => a.User)
-            .HasForeignKey(a => a.UserId)
+        builder.HasMany(u => u.UserTokens)
+            .WithOne(u => u.User)
+            .HasForeignKey(u => u.UserId)
             .IsRequired(true);
     }
 }
