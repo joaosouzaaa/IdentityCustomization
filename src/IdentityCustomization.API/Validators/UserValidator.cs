@@ -21,6 +21,6 @@ public sealed class UserValidator : AbstractValidator<User>
 
         RuleFor(u => u.BirthDate)
             .LessThanOrEqualTo(DateTime.Today)
-            .WithMessage("Invalid birth date, it has to be equal or greater than today.");
+            .WithMessage("Invalid birth date, it has to be equal or less than today.");
     }
 }

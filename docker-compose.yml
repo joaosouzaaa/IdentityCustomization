@@ -1,6 +1,6 @@
 services:
   sqlidentitycustomization:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: mssql-container-identitycustomization
     environment:
       - SA_PASSWORD=Test123IDentity$
